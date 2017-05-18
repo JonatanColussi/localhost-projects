@@ -1,0 +1,33 @@
+.projects > div{
+	padding: 25px;
+	border: 1px solid #ccc;
+	margin: 1%;
+	width: 31%;
+	text-align: center;
+	cursor: pointer;
+}
+.projects > div:hover span{
+	border-bottom: 2px solid #ccc;
+}
+
+.box-search{ 
+    position: relative; 
+}
+
+.box-search input{
+	padding-left:  30px;
+	position: relative;
+}
+.box-search:before{
+	position: absolute;
+	padding: 10px;
+	pointer-events: none;
+	font-family: FontAwesome;
+	content: "\f002";
+	left: 0px;
+	font-size: 0.75em;
+	z-index: 2;
+}
+.row{
+	margin-bottom: 0.5em;
+}
