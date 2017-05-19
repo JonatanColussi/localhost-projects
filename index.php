@@ -21,7 +21,7 @@
     	<div class="row">
     		<div class="col-md-12">
 	    		<div class="form-group box-search">
-	    			<input type="search" name="filter" placeholder="Pesquisar" class="form-control">
+	    			<input type="search" name="filter" placeholder="Pesquisar" class="form-control" autofocus>
 	    		</div>
     		</div>
     	</div>

@@ -4,6 +4,7 @@
 	width: 31%;
 	text-align: center;
 	cursor: pointer;
+	margin-bottom: 5px;
 }
 .projects > div > div{
 	float: left;
@@ -17,10 +18,26 @@
 	padding: 25px 0;
 	width: 95%;
 	vertical-align: middle;
+	transition: all .3s ease-out;
 }
 
-.projects > div:hover span{
-	border-bottom: 2px solid #ccc;
+.projects > div span{
+	display: inline-block;
+}
+
+.projects > div span::after{
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  min-height: 2px;
+  background: #ccc;
+  -webkit-transition: width .5s;
+  transition: width .5s;
+}
+
+.projects > div:hover span::after{
+  width: 100%;
 }
 
 
