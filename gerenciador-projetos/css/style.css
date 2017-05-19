@@ -1,32 +1,26 @@
 html, body{
-	background-color: #6C7B80;
-	color: #fff;
 	height: auto;
 	position: relative;
 }
 .projects > div{
-	border: 1px solid #968C81;
+	border: 1px solid #ccc;
 	margin: 1%;
 	width: 31%;
 	text-align: center;
 	cursor: pointer;
 	margin-bottom: 5px;
-	background-color: #084683;
+	padding: 25px 0;
 }
-.projects > div > div{
-	float: left;
-	height: 100%;
+.projects > div > div > i.fa{
+	padding: 0 0.2em;
 }
+
 .projects > div > div:first-child{
-	height: 100%;
-	width: 8%;
-	margin-top: 0.3em;
-	text-align: center;
-	display: grid;
+	min-height: 10%;
+	display: inline-block;
+	vertical-align: baseline;
 }
 .projects > div > div:last-child{
-	padding: 25px 0;
-	width: 90%;
 	vertical-align: middle;
 	transition: all .3s ease-out;
 }
@@ -41,7 +35,7 @@ html, body{
   width: 0%;
   height: 2px;
   min-height: 2px;
-  background: #968C81;
+  background: #ccc;
   -webkit-transition: width .5s;
   transition: width .5s;
 }
@@ -62,8 +56,6 @@ html, body{
 .box-search input{
 	padding-left:  30px;
 	position: relative;
-	background-color: #97ABB2 !important;
-	border-color: #084683 !important;
 }
 .box-search:before{
 	position: absolute;
@@ -80,13 +72,12 @@ html, body{
 	margin-bottom: 0.5em;
 }
 
-
 footer {
     position: absolute;
     bottom: 0;
     text-align: right;
     width: 100%;
     padding-right: 2em;
-    background-color: #97ABB2;
+    background-color: #ccc;
     color: #464a4c;
 }
