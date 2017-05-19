@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	$("[name=filter]").on('keydown keyup', function(){
+	$("[name=filter]").on('keyup', function(){
 		var pesquisa = $(this).val();
 		pesquisa = pesquisa.toUpperCase();
 		$(".projects > div").each(function(){
@@ -8,6 +8,10 @@ jQuery(document).ready(function($) {
 			else
 				$(this).hide('fast');
 		});
+		if($(window).height() > $("body").height())
+			$("footer").css('position', 'fixed');
+		else
+			$("footer").css('position', 'absolute');
 	});
 	$(".projects > div").on('click', function(){
 		event.preventDefault();
