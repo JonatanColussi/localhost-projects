@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <main class="container">
     	<div class="row">
     		<div class="col-md-12">
 	    		<h1 class="title">Gerenciador de projetos | Jonatan Colussi</h1>
@@ -26,7 +26,7 @@
     		</div>
     	</div>
 		<div class="row projects">
-			<?php 
+			<?php
 				foreach(glob('../*', GLOB_ONLYDIR) as $project){
                     $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
                 
@@ -49,8 +49,8 @@
                     $nameProject = trim($nameProject);
 					echo "<div data-url=\"{$project}\">
                                 <div>";
-                    if($hasGit) echo "<i class=\"fa fa-code-fork\"></i>";
-                    if($hasSftp) echo "<i class=\"fa fa-server\"></i>";
+                    if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
+                    if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
                             echo "</div>
                                 <div>
 								    <span>{$nameProject}</span>
@@ -59,9 +59,11 @@
 				}
 			?>
 		</div>
+    </main>
 
-
-    </div>
+    <footer>
+        <?= date('Y') ?> Jonatan Colussi
+    </footer>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>

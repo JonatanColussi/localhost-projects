@@ -13,4 +13,9 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 		window.location.href = $(this).data('url');
 	});
+
+	if($(window).height() > $("body").height())
+		$("footer").css('position', 'fixed');
+	else
+		$("footer").css('position', 'absolute');
 });
