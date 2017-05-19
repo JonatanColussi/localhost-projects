@@ -8,6 +8,8 @@
     <title>Gerenciador de projetos | Jonatan Colussi</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/tooltipster.bundle.min.css" rel="stylesheet">
+    <link href="css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
 
@@ -51,9 +53,7 @@
                                 <div>";
                     if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
                     if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
-                    if(!$hasGit && !$hasSftp){
-                            echo "<i class=\"fa fa-folder\" title=\"Apenas uma Pasta\"></i>";
-                    }
+                    if(!$hasGit && !$hasSftp) echo "<i class=\"fa fa-folder\" title=\"É apenas um diretório\"></i>";
                             echo "</div>
                                 <div>
                                     <span>{$nameProject}</span>
@@ -69,6 +69,7 @@
     </footer>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/tooltipster.bundle.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>

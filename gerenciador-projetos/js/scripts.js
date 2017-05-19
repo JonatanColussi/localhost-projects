@@ -1,3 +1,6 @@
+$("i").tooltipster({
+	theme: 'tooltipster-shadow'
+});
 jQuery(document).ready(function($) {
 	$("[name=filter]").on('keyup', function(){
 		var pesquisa = $(this).val();
@@ -22,4 +25,5 @@ jQuery(document).ready(function($) {
 		$("footer").css('position', 'fixed');
 	else
 		$("footer").css('position', 'absolute');
+
 });
