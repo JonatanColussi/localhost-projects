@@ -28,23 +28,33 @@
 		<div class="row projects">
 			<?php 
 				foreach(glob('../*', GLOB_ONLYDIR) as $project){
-					$nameProject = str_replace('../', null, $project);
+                    $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
+                
+                    $hasGit = in_array($project.'/.git', $subdirs);
+                    $hasSftp = in_array($project.'/sftp-config.json', $subdirs);
 
-					if(strrpos($nameProject, '-') != false)
-						$name = explode('-', $nameProject);
-					elseif(strrpos($nameProject, '_') != false)
-						$name = explode('_', $nameProject);
-					else
-						$name = [$nameProject];
+                    $nameProject = str_replace('../', null, $project);
 
-					$name = array_map('ucfirst', $name);
+                    if(strrpos($nameProject, '-') != false)
+                        $name = explode('-', $nameProject);
+                    elseif(strrpos($nameProject, '_') != false)
+                        $name = explode('_', $nameProject);
+                    else
+                        $name = [$nameProject];
 
-					$nameProject = implode(' ', $name);
+                    $name = array_map('ucfirst', $name);
 
-					$nameProject = trim($nameProject);
+                    $nameProject = implode(' ', $name);
 
+                    $nameProject = trim($nameProject);
 					echo "<div data-url=\"{$project}\">
-								<span>{$nameProject}</span>
+                                <div>";
+                    if($hasGit) echo "<i class=\"fa fa-code-fork\"></i>";
+                    if($hasSftp) echo "<i class=\"fa fa-server\"></i>";
+                            echo "</div>
+                                <div>
+								    <span>{$nameProject}</span>
+                                </div>
 							</div>";
 				}
 			?>

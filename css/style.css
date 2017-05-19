@@ -1,14 +1,30 @@
 .projects > div{
-	padding: 25px;
 	border: 1px solid #ccc;
 	margin: 1%;
 	width: 31%;
 	text-align: center;
 	cursor: pointer;
 }
+.projects > div > div{
+	float: left;
+	height: 100%;
+}
+.projects > div > div:first-child{
+	height: 100%;
+	width: 5%;
+}
+.projects > div > div:last-child{
+	padding: 25px 0;
+	width: 95%;
+	vertical-align: middle;
+}
+
 .projects > div:hover span{
 	border-bottom: 2px solid #ccc;
 }
+
+
+
 
 .box-search{ 
     position: relative; 
