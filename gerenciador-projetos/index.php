@@ -13,21 +13,21 @@
 
   <body>
     <main class="container">
-    	<div class="row">
-    		<div class="col-md-12">
-	    		<h1 class="title">Gerenciador de projetos | Jonatan Colussi</h1>
-    		</div>
-    	</div>
-    	<div class="row">
-    		<div class="col-md-12">
-	    		<div class="form-group box-search">
-	    			<input type="search" name="filter" placeholder="Pesquisar" class="form-control" autofocus>
-	    		</div>
-    		</div>
-    	</div>
-		<div class="row projects">
-			<?php
-				foreach(glob('../*', GLOB_ONLYDIR) as $project){
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">Gerenciador de projetos | Jonatan Colussi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group box-search">
+                    <input type="search" name="filter" placeholder="Pesquisar" class="form-control" autofocus>
+                </div>
+            </div>
+        </div>
+        <div class="row projects">
+            <?php
+                foreach(glob('../*', GLOB_ONLYDIR) as $project){
                     $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
                 
                     $hasGit = in_array($project.'/.git', $subdirs);
@@ -47,18 +47,21 @@
                     $nameProject = implode(' ', $name);
 
                     $nameProject = trim($nameProject);
-					echo "<div data-url=\"{$project}\">
+                    echo "<div data-url=\"{$project}\">
                                 <div>";
                     if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
                     if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
+                    if(!$hasGit && !$hasSftp){
+                            echo "<i class=\"fa fa-folder\" title=\"Apenas uma Pasta\"></i>";
+                    }
                             echo "</div>
                                 <div>
-								    <span>{$nameProject}</span>
+                                    <span>{$nameProject}</span>
                                 </div>
-							</div>";
-				}
-			?>
-		</div>
+                            </div>";
+                }
+            ?>
+        </div>
     </main>
 
     <footer>
