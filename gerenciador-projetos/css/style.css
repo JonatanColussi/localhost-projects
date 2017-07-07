@@ -2,7 +2,7 @@ html, body{
 	height: auto;
 	position: relative;
 }
-.projects > div{
+.projects > a{
 	border: 1px solid #ccc;
 	margin: 1%;
 	width: 31%;
@@ -10,26 +10,33 @@ html, body{
 	cursor: pointer;
 	margin-bottom: 5px;
 	padding: 25px 0;
+	color: #292b2c;
 }
-.projects > div > div > i.fa{
+.projects > a > div > i.fa{
 	padding: 0 0.2em;
 }
 
-.projects > div > div:first-child{
+.projects > a > div:first-child{
 	min-height: 10%;
 	display: inline-block;
 	vertical-align: baseline;
 }
-.projects > div > div:last-child{
+.projects > a > div:last-child{
 	vertical-align: middle;
 	transition: all .3s ease-out;
 }
 
-.projects > div span{
+.projects > a span{
 	display: inline-block;
 }
+.projects > a p{
+	font-size: 12px;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: #464a4c;
+}
 
-.projects > div span::after{
+.projects > a span::after{
   content: '';
   display: block;
   width: 0%;
@@ -40,14 +47,13 @@ html, body{
   transition: width .5s;
 }
 
-.projects > div:hover span::after{
+.projects > a:hover span::after{
   width: 100%;
 }
 
 .container{
 	padding-bottom: 2em;
 }
-
 
 .box-search{ 
     position: relative; 
@@ -57,6 +63,7 @@ html, body{
 	padding-left:  30px;
 	position: relative;
 }
+
 .box-search:before{
 	position: absolute;
 	padding: 10px;

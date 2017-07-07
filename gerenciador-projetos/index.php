@@ -30,6 +30,8 @@
         <div class="row projects">
             <?php
                 foreach(glob('../*', GLOB_ONLYDIR) as $project){
+                    $stat = stat($project);
+                    $modified = date('d/m/Y', $stat['mtime']);
                     $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
                 
                     $hasGit = in_array($project.'/.git', $subdirs);
@@ -49,7 +51,7 @@
                     $nameProject = implode(' ', $name);
 
                     $nameProject = trim($nameProject);
-                    echo "<div data-url=\"{$project}\">
+                    echo "<a href=\"{$project}\">
                                 <div>";
                     if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
                     if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
@@ -57,8 +59,9 @@
                             echo "</div>
                                 <div>
                                     <span>{$nameProject}</span>
+                                    <p>{$modified}</p>
                                 </div>
-                            </div>";
+                            </a>";
                 }
             ?>
         </div>

@@ -1,7 +1,9 @@
 $("i").tooltipster({
 	theme: 'tooltipster-shadow'
 });
+
 jQuery(document).ready(function($) {
+	ajustaLayout();
 	$("[name=filter]").on('keyup', function(){
 		var pesquisa = $(this).val();
 		pesquisa = pesquisa.toUpperCase();
@@ -11,19 +13,13 @@ jQuery(document).ready(function($) {
 			else
 				$(this).hide('fast');
 		});
-		if($(window).height() > $("body").height())
-			$("footer").css('position', 'fixed');
-		else
-			$("footer").css('position', 'absolute');
+		ajustaLayout()
 	});
-	$(".projects > div").on('click', function(){
-		event.preventDefault();
-		window.location.href = $(this).data('url');
-	});
+});
 
+function ajustaLayout(){
 	if($(window).height() > $("body").height())
 		$("footer").css('position', 'fixed');
 	else
 		$("footer").css('position', 'absolute');
-
-});
+}
