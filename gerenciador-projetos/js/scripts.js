@@ -7,13 +7,13 @@ jQuery(document).ready(function($) {
 	$("[name=filter]").on('keyup', function(){
 		var pesquisa = $(this).val();
 		pesquisa = pesquisa.toUpperCase();
-		$(".projects > div").each(function(){
+		$(".projects > a").each(function(){
 			if($(this).text().toUpperCase().indexOf(pesquisa) >= 0)
 				$(this).show('fast');
 			else
 				$(this).hide('fast');
 		});
-		ajustaLayout()
+		ajustaLayout();
 	});
 });
 
