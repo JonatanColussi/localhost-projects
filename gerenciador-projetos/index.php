@@ -30,38 +30,40 @@
         <div class="row projects">
             <?php
                 foreach(glob('../*', GLOB_ONLYDIR) as $project){
-                    $stat = stat($project);
-                    $modified = date('d/m/Y', $stat['mtime']);
-                    $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
-                
-                    $hasGit = in_array($project.'/.git', $subdirs);
-                    $hasSftp = in_array($project.'/sftp-config.json', $subdirs);
-
                     $nameProject = str_replace('../', null, $project);
 
-                    if(strrpos($nameProject, '-') != false)
-                        $name = explode('-', $nameProject);
-                    elseif(strrpos($nameProject, '_') != false)
-                        $name = explode('_', $nameProject);
-                    else
-                        $name = [$nameProject];
+                    if('/'.$nameProject.'/' != $_SERVER['REQUEST_URI']){
+                        $stat = stat($project);
+                        $modified = date('d/m/Y', $stat['mtime']);
+                        $subdirs = glob($project.'/{,.}*', GLOB_BRACE);
+                    
+                        $hasGit = in_array($project.'/.git', $subdirs);
+                        $hasSftp = in_array($project.'/sftp-config.json', $subdirs);
 
-                    $name = array_map('ucfirst', $name);
+                        if(strrpos($nameProject, '-') != false)
+                            $name = explode('-', $nameProject);
+                        elseif(strrpos($nameProject, '_') != false)
+                            $name = explode('_', $nameProject);
+                        else
+                            $name = [$nameProject];
 
-                    $nameProject = implode(' ', $name);
+                        $name = array_map('ucfirst', $name);
 
-                    $nameProject = trim($nameProject);
-                    echo "<a href=\"{$project}\">
-                                <div>";
-                    if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
-                    if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
-                    if(!$hasGit && !$hasSftp) echo "<i class=\"fa fa-folder\" title=\"É apenas um diretório\"></i>";
-                            echo "</div>
-                                <div>
-                                    <span>{$nameProject}</span>
-                                    <p>{$modified}</p>
-                                </div>
-                            </a>";
+                        $nameProject = implode(' ', $name);
+
+                        $nameProject = trim($nameProject);
+                        echo "<a href=\"{$project}\">
+                                    <div>";
+                        if($hasGit) echo "<i class=\"fa fa-code-fork\" title=\"É um repositório Git\"></i>";
+                        if($hasSftp) echo "<i class=\"fa fa-server\" title=\"Contém os dados de ftp\"></i>";
+                        if(!$hasGit && !$hasSftp) echo "<i class=\"fa fa-folder\" title=\"É apenas um diretório\"></i>";
+                                echo "</div>
+                                    <div>
+                                        <span>{$nameProject}</span>
+                                        <p>{$modified}</p>
+                                    </div>
+                                </a>";
+                    }
                 }
             ?>
         </div>
